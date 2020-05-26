@@ -2,7 +2,7 @@
   "name": "mini-app",
   "version": "1.0.0",
   "description": "",
-
+  "homepage": "./public/",
 
   "main": "index.js",
   "scripts": {
