@@ -6,7 +6,7 @@ import '@vkontakte/vkui/dist/vkui.css';
 
 function App(){
 	return (
-<div>Test application</div>
+<div>Альберт привет</div>
 	);
 }
 
