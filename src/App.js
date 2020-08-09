@@ -7,7 +7,7 @@
 import React from 'react';
 import '@vkontakte/vkui/dist/vkui.css';
 import TestComponents from "./TestComponents";
-import Example from "./Tabbar";
+import TabBar from "./TabBar";
 
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
         //     Введите данные полей
         // </div>
 
-    <Example />
+    <TabBar />
 
 )
 
