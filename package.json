@@ -2,7 +2,7 @@
   "name": "mini-app",
   "version": "1.0.0",
   "description": "",
-  "homepage": "./",
+  "homepage": "https://dd114.github.io/vk-application/",
   "main": "index.js",
   "scripts": {
     "start": "cross-env PORT=10889 HTTPS=true react-scripts start",
