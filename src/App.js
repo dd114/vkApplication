@@ -5,9 +5,6 @@ import TabBar from "./views/TabBar";
 
 function App() {
     return (
-        // <div className='wrapper'>
-        //     Введите данные полей
-        // </div>
 
         <TabBar/>
 

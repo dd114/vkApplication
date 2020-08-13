@@ -4,14 +4,16 @@ import {
     Panel,
     Epic,
     Tabbar,
-    TabbarItem, PanelHeader, Group, Cell, PanelHeaderBack,
+    TabbarItem
 } from '@vkontakte/vkui';
 import HomePanel from "./home/HomePanel";
+import HelpPanel from "./additionally/HelpPanel";
+import ListCharacters from "./additionally/ListCharactersPanel";
+import AboutApplication from "./additionally/AboutApplicationPanel";
+import MorePanel from "./home/MorePanel";
 import Icon28HomeOutline from '@vkontakte/icons/dist/28/home_outline';
 import Icon28MenuOutline from '@vkontakte/icons/dist/28/menu_outline';
-import Icon28HelpOutline from '@vkontakte/icons/dist/28/help_outline';
-import Icon28ArticleOutline from '@vkontakte/icons/dist/28/article_outline';
-import Icon28InfoOutline from '@vkontakte/icons/dist/28/info_outline';
+
 
 function TabBar() {
     const [activeStory, setActiveStory] = useState('home')
@@ -36,59 +38,35 @@ function TabBar() {
         }>
 
 
-
-
             <View id="home" activePanel="home">
                 <Panel id="home">
-                    <HomePanel/>
+                    <HomePanel setActiveStory={setActiveStory} setActivePanel={setActivePanel}/>
                 </Panel>
             </View>
-
-
 
 
             <View id="additionally" activePanel={activePanel}>
 
                 <Panel id="more">
-                    <PanelHeader>More</PanelHeader>
-                    <Group>
-                        <Cell expandable before={<Icon28HelpOutline/>}
-                              onClick={() => setActivePanel('help')}>
-                            Помощь
-                        </Cell>
-                        <Cell expandable before={<Icon28ArticleOutline/>}
-                              onClick={() => setActivePanel('listCharacters')}>
-                            Список обозначений
-                        </Cell>
-                        <Cell expandable before={<Icon28InfoOutline/>}
-                              onClick={() => setActivePanel('aboutApplication')}>
-                            О приложении
-                        </Cell>
-                    </Group>
+                    <MorePanel setActivePanel={setActivePanel}/>
                 </Panel>
 
                 <Panel id="help">
-                    <PanelHeader separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('more')}/>}>
-                        Помощь
-                    </PanelHeader>
+                    <HelpPanel setActivePanel={setActivePanel}/>
                 </Panel>
 
                 <Panel id="listCharacters">
-                    <PanelHeader separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('more')}/>}>
-                        Список обозначений
-                    </PanelHeader>
+                    <ListCharacters setActivePanel={setActivePanel}/>
                 </Panel>
 
                 <Panel id="aboutApplication">
-                    <PanelHeader separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('more')}/>}>
-                        О приложении
-                    </PanelHeader>
+                    <AboutApplication setActivePanel={setActivePanel}/>
                 </Panel>
 
             </View>
 
         </Epic>
-    )
+)
 
 }
 

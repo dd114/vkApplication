@@ -1,18 +1,19 @@
 import React from 'react';
+import {PanelHeader, PanelHeaderBack} from "@vkontakte/vkui";
 // import {Cell, PanelHeader, PanelHeaderBack} from '@vkontakte/vkui';
 
 
-function AboutApplication() {
+function AboutApplication(props) {
 
 
-/*    return (
+    return (
         <div>
-            <PanelHeader separator={false} left={<PanelHeaderBack onClick={() => this.setState({ activePanel: 'panel1' })}/>}>
+            <PanelHeader separator={true} left={<PanelHeaderBack onClick={() => props.setActivePanel('more')}/>}>
                 О приложении
             </PanelHeader>
         </div>
 
-    )*/
+    )
 
 }
 

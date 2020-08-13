@@ -1,18 +1,19 @@
 import React from 'react';
-// import {Cell, PanelHeader, PanelHeaderBack} from '@vkontakte/vkui';
+import {PanelHeader, PanelHeaderBack} from "@vkontakte/vkui";
 
 
-function ListCharacters() {
+
+function ListCharacters(props) {
 
 
-/*    return (
+    return (
         <div>
-            <PanelHeader separator={false} left={<PanelHeaderBack onClick={() => this.setState({ activePanel: 'panel1' })}/>}>
+            <PanelHeader separator={true} left={<PanelHeaderBack onClick={() => props.setActivePanel('more')}/>}>
                 Список обозначений
             </PanelHeader>
         </div>
 
-    )*/
+    )
 
 }
 
