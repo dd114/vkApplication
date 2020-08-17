@@ -1,5 +1,5 @@
-import React from 'react';
-import {Card, CardGrid, Div, PanelHeader, PanelHeaderBack, Link, Title, Text} from "@vkontakte/vkui";
+import React from 'react'
+import {Card, CardGrid, Div, PanelHeader, PanelHeaderBack, Link, Title, Text} from "@vkontakte/vkui"
 
 
 function AboutApplication(props) {

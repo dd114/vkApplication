@@ -1,5 +1,5 @@
-import React from 'react';
-import {Card, CardGrid, Div, PanelHeader, PanelHeaderBack, Text, Title} from "@vkontakte/vkui";
+import React from 'react'
+import {Card, CardGrid, Div, PanelHeader, PanelHeaderBack, Text, Title} from "@vkontakte/vkui"
 
 
 function HelpPanel(props) {

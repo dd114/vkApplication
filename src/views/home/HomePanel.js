@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState} from 'react'
 import {
     PanelHeader,
     FormLayout,
@@ -8,9 +8,9 @@ import {
     FormStatus,
     Link,
     CardScroll,
-} from "@vkontakte/vkui";
-import Icon28AddOutline from '@vkontakte/icons/dist/28/add_outline';
-import Cards from "../../components/Cards";
+} from "@vkontakte/vkui"
+import Icon28AddOutline from '@vkontakte/icons/dist/28/add_outline'
+import Cards from "../../components/Cards"
 
 
 
@@ -25,14 +25,21 @@ function HomePanel(props) {
         props.setActivePanel(namePage)
     }
 
+
     let handleChange = (event) => {
         setInitInput(event.target.value)
     }
 
     let handleClick = () => {
-        setCards([...cards, {id: Date.now(), initData: initInput}])
+        if (dataValidation(initInput))
+            setCards([...cards, {id: Date.now(), initData: initInput}])
+        else
+            setCards([...cards, {id: Date.now(), initData: 'Nothing'}])
     }
     // console.log(cards)
+
+    let dataValidation = initData => !!initData
+
 
 
     return (
@@ -69,7 +76,7 @@ function HomePanel(props) {
                 />
 
                 <CardScroll>
-                        {cards.map(item => <Cards key={item.id} item={item}/>)}
+                    {cards.map(item => <Cards key={item.id} item={item}/>)}
                 </CardScroll>
 
                 <FormStatus header="Некорректно введенные данные" mode="error">

@@ -1,5 +1,5 @@
-import React from 'react';
-import {Card} from "@vkontakte/vkui";
+import React from 'react'
+import {Card} from "@vkontakte/vkui"
 
 function Cards(props) {
     const styles = {

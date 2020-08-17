@@ -1,5 +1,5 @@
-import React from 'react';
-import {PanelHeader, PanelHeaderBack, Search, Div, Card, CardGrid, Title, Text} from "@vkontakte/vkui";
+import React from 'react'
+import {PanelHeader, PanelHeaderBack, Search, Div, Card, CardGrid, Title, Text} from "@vkontakte/vkui"
 
 
 function ListCharacters(props) {
