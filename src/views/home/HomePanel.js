@@ -34,7 +34,7 @@ function HomePanel(props) {
         if (dataValidation(initInput))
             setCards([...cards, {id: Date.now(), initData: initInput}])
         else
-            setCards([...cards, {id: Date.now(), initData: 'Nothing'}])
+            setCards([...cards, {id: Date.now(), initData: 'Nothing entered'}])
     }
     // console.log(cards)
 
