@@ -2,7 +2,7 @@
   "name": "mini-app",
   "version": "1.0.0",
   "description": "",
-  "homepage": "https://dd114.github.io/vk-application/",
+  "homepage": "https://dd114.github.io/vkApplication/",
   "main": "index.js",
   "scripts": {
     "start": "cross-env PORT=10889 HTTPS=true react-scripts start",
@@ -17,13 +17,13 @@
     "cross-env": "^5.2.0",
     "gh-pages": "^3.1.0",
     "react-hot-loader": "^4.9.0",
-    "react-scripts": "^3.4.1"
+    "react-scripts": "^3.4.3"
   },
   "dependencies": {
-    "@vkontakte/icons": "^1.30.1",
-    "@vkontakte/vk-bridge": "^2.2.2",
+    "@vkontakte/icons": "^1.32.0",
+    "@vkontakte/vk-bridge": "^2.2.7",
     "@vkontakte/vk-miniapps-deploy": "0.0.17",
-    "@vkontakte/vkui": "^3.5.0",
+    "@vkontakte/vkui": "^3.12.0",
     "babel-eslint": "^10.1.0",
     "chalk": "^2.4.2",
     "core-js": "^3.6.4",
