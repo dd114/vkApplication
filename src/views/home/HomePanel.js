@@ -13,7 +13,6 @@ import Icon28AddOutline from '@vkontakte/icons/dist/28/add_outline'
 import Cards from "../../components/Cards"
 
 
-
 function HomePanel(props) {
 
     const [initInput, setInitInput] = useState('')
@@ -25,21 +24,48 @@ function HomePanel(props) {
         props.setActivePanel(namePage)
     }
 
+    let logs = initData => {
+        let regex = /[A-Za-zа-я12_]{1,4}[= ]+[0-9]+(.){0,1}[0-9]+/g
+        console.log('Text=value ')
+        console.log(initData.match(regex))
+
+        regex = /,(?=[0-9]+)/g //возможна ошибка, нет проверки на наличие цифр слева от запятой
+        console.log('what are we replacing ')
+        console.log(initInput.match(regex))
+        console.log('answer ')
+        console.log(initInput.replace(regex, '.'))
+        // setInitInput(initData.replace(regex, '.'))
+        initData = initInput.replace(regex, '.')
+
+        regex = /[\s=,]+/g
+        console.log('array by delimiter ')
+        console.log(initData.split(regex))
+
+        console.log(' ============== ')
+        }
 
     let handleChange = (event) => {
         setInitInput(event.target.value)
     }
 
+
     let handleClick = () => {
-        if (dataValidation(initInput))
+        if (dataValidation(initInput) === true)
             setCards([...cards, {id: Date.now(), initData: initInput}])
         else
             setCards([...cards, {id: Date.now(), initData: 'Nothing entered'}])
+        // console.log(cards.reverse())
     }
+
     // console.log(cards)
 
-    let dataValidation = initData => !!initData
+    let dataValidation = initData => {
+        // logs(initData)
 
+        console.log(initData.match((/([0-9]=?) (?=[A-Za-zа-я])/g)))
+
+        return !!initData
+    }
 
 
     return (

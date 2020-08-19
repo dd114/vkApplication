@@ -26,7 +26,7 @@ function AboutApplication(props) {
                     <Div style={styles.div}>
                         <Title level="3">О нас:</Title><br/>
                         <Text weight="regular">
-                        <Link href="https://github.com/dd114/vk-application" target="_blank">Мы на GitHub</Link><br/>
+                        <Link href="https://github.com/dd114/vkApplication" target="_blank">Мы на GitHub</Link><br/>
                         </Text>
                     </Div>
                 </Card>
