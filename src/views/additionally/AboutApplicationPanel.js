@@ -24,7 +24,7 @@ function AboutApplication(props) {
             <CardGrid style={styles.CardGrid}>
                 <Card size="l">
                     <Div style={styles.div}>
-                        <Title level="3">О нас:</Title><br/>
+                        <Title level="3">О нас:</Title>
                         <Text weight="regular">
                         <Link href="https://github.com/dd114/vkApplication" target="_blank">Мы на GitHub</Link><br/>
                         </Text>

@@ -5,18 +5,18 @@ import {
     Input,
     Button,
     FormLayoutGroup,
-    FormStatus,
-    Link,
     CardScroll,
 } from "@vkontakte/vkui"
 import Icon28AddOutline from '@vkontakte/icons/dist/28/add_outline'
 import Cards from "../../components/Cards"
+import MyFormStatus from "../../components/MyFormStatus";
 
 
 function HomePanel(props) {
 
     const [initInput, setInitInput] = useState('')
     const [cards, setCards] = useState([])
+    const [formStatus, setFormStatus] = useState({mode: 'valid', error: ''})
 
 
     let goToPage = (namePage) => {
@@ -24,49 +24,66 @@ function HomePanel(props) {
         props.setActivePanel(namePage)
     }
 
-    let logs = initData => {
-        let regex = /[A-Za-zа-я12_]{1,4}[= ]+[0-9]+(.){0,1}[0-9]+/g
-        console.log('Text=value ')
-        console.log(initData.match(regex))
-
-        regex = /,(?=[0-9]+)/g //возможна ошибка, нет проверки на наличие цифр слева от запятой
-        console.log('what are we replacing ')
-        console.log(initInput.match(regex))
-        console.log('answer ')
-        console.log(initInput.replace(regex, '.'))
-        // setInitInput(initData.replace(regex, '.'))
-        initData = initInput.replace(regex, '.')
-
-        regex = /[\s=,]+/g
-        console.log('array by delimiter ')
-        console.log(initData.split(regex))
-
-        console.log(' ============== ')
-        }
 
     let handleChange = (event) => {
         setInitInput(event.target.value)
     }
 
-
     let handleClick = () => {
-        if (dataValidation(initInput) === true)
-            setCards([...cards, {id: Date.now(), initData: initInput}])
-        else
-            setCards([...cards, {id: Date.now(), initData: 'Nothing entered'}])
-        // console.log(cards.reverse())
+        generalValidation(initInput)
     }
 
     // console.log(cards)
 
-    let dataValidation = initData => {
-        // logs(initData)
-
-        console.log(initData.match((/([0-9]=?) (?=[A-Za-zа-я])/g)))
-
-        return !!initData
+    let dataProcessing = (initData) => {
+        let regex = /(?<=[0-9]+),(?=[0-9]+)/g
+        // console.log(initData.replace(regex, '.'))
+        return initData.replace(regex, '.')
     }
 
+
+    let equalityCheck = initData => {
+        let regex = /[A-Za-zа-я12_]{1,4}[= ]+[0-9]+(.){0,1}[0-9]*/g
+        let correctExpression
+        if (regex.test(initData)) correctExpression = initData.match(regex)[0]
+        // console.log(correctExpression)
+        return correctExpression === initData
+    }
+    let dataSpliting = initData => {
+        let regex = /(?<=[0-9]+)[\s,]+(?=[A-Za-zа-я12_]+)/g
+        // console.log(initData.split(regex))
+        return initData.split(regex)
+    }
+
+    let generalValidation = initInput => {
+        let initData = dataProcessing(initInput)
+        let equality = dataSpliting(initData)
+
+        setFormStatus({
+            mode: 'valid',
+            error: ''
+        })
+
+        let correctEquality = []
+        for (let i = 0; i < equality.length; i++) {
+            if (equalityCheck(equality[i])) {
+                correctEquality.push({id: Date.now() + Math.round(Math.random() * 1000), initData: equality[i]})
+            } else {
+                setFormStatus({
+                    mode: 'error',
+                    error: equality[i]
+                })
+                break
+            }
+            setInitInput('')
+        }
+
+        if (!!initData)
+            setCards([...cards, ...correctEquality])
+        // else
+        // setCards([...cards, {id: Date.now(), initData: 'Nothing entered'}])
+
+    }
 
     return (
         <div>
@@ -78,9 +95,10 @@ function HomePanel(props) {
                         type="text"
                         name="initData"
                         placeholder="Введите данные"
-                        /*status="valid"*/
+                        status={formStatus.mode}
                         className="add"
                         onChange={handleChange}
+                        value={initInput}
                     />
 
                     <Button
@@ -95,7 +113,6 @@ function HomePanel(props) {
                     type="text"
                     top="Найти"
                     name="toFind"
-                    /*value="rrr"*/
                     placeholder="Что нужно найти?"
                     /*status="valid"*/
                     /*bottom="{email ? 'Электронная почта введена верно!' : 'Пожалуйста, введите электронную почту'}"*/
@@ -105,11 +122,7 @@ function HomePanel(props) {
                     {cards.map(item => <Cards key={item.id} item={item}/>)}
                 </CardScroll>
 
-                <FormStatus header="Некорректно введенные данные" mode="error">
-                    Необходимо корректно ввести данные в заданном формате<br/>
-                    Посетите раздел <Link onClick={() => goToPage('help')}>помощь</Link> и <Link
-                    onClick={() => goToPage('listCharacters')}>список обозначений</Link>
-                </FormStatus>
+                <MyFormStatus mode={formStatus.mode} error={formStatus.error} goToPage={goToPage}/>
 
                 <Button size="xl">Решить</Button>
 

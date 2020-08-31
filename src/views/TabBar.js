@@ -10,7 +10,7 @@ import HomePanel from "./home/HomePanel";
 import HelpPanel from "./additionally/HelpPanel";
 import ListCharacters from "./additionally/ListCharactersPanel";
 import AboutApplication from "./additionally/AboutApplicationPanel";
-import MorePanel from "./home/MorePanel";
+import MorePanel from "./additionally/MorePanel";
 import Icon28HomeOutline from '@vkontakte/icons/dist/28/home_outline';
 import Icon28MenuOutline from '@vkontakte/icons/dist/28/menu_outline';
 

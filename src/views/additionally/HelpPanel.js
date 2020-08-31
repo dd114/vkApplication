@@ -23,7 +23,7 @@ function HelpPanel(props) {
             <CardGrid style={styles.CardGrid}>
                 <Card size="l">
                     <Div style={styles.div}>
-                        <Title level="3">Как пользоваться приложением?</Title><br/>
+                        <Title level="3">Как пользоваться приложением?</Title>
                         <Text weight="regular">
                             1) Вводить данные по образцу Дано ... Найти<br/>
                             2) Регистр ключевых слов "дано, найти" не имеет значения, а обозначений - да. Например А - работа, а - ускорение.<br/>

@@ -1,0 +1,27 @@
+    let logs = initData => {
+        let regex = /[A-Za-zа-я12_]{1,4}[= ]+[0-9]+(.){0,1}[0-9]*/g
+        console.log('Text=value ')
+        console.log(initData.match(regex))
+
+        regex = /(?<=[0-9]+),(?=[0-9]+)/g
+        console.log('what are we replacing ')
+        console.log(initInput.match(regex))
+        console.log('answer ')
+        console.log(initInput.replace(regex, '.'))
+        // setInitInput(initData.replace(regex, '.'))
+        initData = initInput.replace(regex, '.')
+
+        regex = /[\s=,]+/g
+        console.log('array by delimiter 1')
+        console.log(initData.split(regex))
+
+        regex = /(?<=[0-9]+)[\s,]+(?=[A-Za-zа-я12_]+)/g
+        console.log('array by delimiter 2')
+        console.log(initData.split(regex))
+
+        console.log(' ============== ')
+    }
+
+
+
+    F = 120,189 hhf= 12.0, mdk = 0 , nwje = 486

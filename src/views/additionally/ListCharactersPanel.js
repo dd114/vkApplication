@@ -25,7 +25,7 @@ function ListCharacters(props) {
             <CardGrid style={styles.CardGrid}>
                 <Card size="l">
                     <Div style={styles.div}>
-                        <Title level="3">Список обозначений:</Title><br/>
+                        <Title level="3">Список обозначений:</Title>
                         <Text weight="regular">
                         Fтяж => сила тяжести<br/>
                         F => сила<br/>
